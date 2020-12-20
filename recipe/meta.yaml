@@ -23,6 +23,7 @@ requirements:
   host:
     - pip
     - python
+  build:
     - poetry
   run:
     - backports.cached-property >=1,<2  # [py<38]
