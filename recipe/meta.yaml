@@ -20,11 +20,10 @@ build:
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
-  build:
-    - poetry
   host:
     - pip
     - python
+    - poetry >=1,<2
   run:
     - backports.cached-property >=1,<2  # [py<38]
     - numpy >=1,<2
