@@ -1,5 +1,6 @@
 {% set name = "pantable" %}
-{% set version = "0.12.4" %}
+{% set version = "0.13.2" %}
+
 
 package:
   name: {{ name|lower }}
@@ -7,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9ad940e6088285241a642f812f5cab83aa98491682884876c1205b2103afff01
+  sha256: eda536e26de495fd46a0b2985f2b26ccf39259aa7cc9451cbd9307d534bb055d
 
 build:
   noarch: python
@@ -15,40 +16,39 @@ build:
   entry_points:
     - pantable = pantable.cli.pantable:main
     - pantable2csv = pantable.cli.pantable2csv:main
-  script: "{{ PYTHON }} -m pip install . -vv"
+    - pantable2csvx = pantable.cli.pantable2csvx:main
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.6,<4
     - pip
+    - python >=3.7,<4
   run:
-    - python >=3.6,<4
-    - panflute >=1.8.2,<2
+    - backports.cached-property >=1,<2  # [py<38]
+    - numpy >=1,<2
+    - panflute >=2,<3
+    - python >=3.7,<4
     - pyyaml >=5,<6
-    - pandoc >=2,<2.10
+    - pandoc >=2.11.2,<2.12
 
 test:
-  requires:
-    - pip
-    - pytest
-    - pytest-cov
-    - coverage
-    - terminaltables
   imports:
     - pantable
+    - pantable.cli
   commands:
     - pip check
     - |
       echo '# testing' | pandoc -F pantable
-    - |
       echo '# testing' | pandoc -F pantable2csv
+      echo '# testing' | pandoc -F pantable2csvx
+  requires:
+    - pip
 
 about:
-  home: https://github.com/ickc/pantable/
+  home: https://github.com/ickc/pantable
+  summary: A Python library for writing pandoc filters for tables with batteries included.
   license: BSD-3-Clause
-  license_family: BSD
   license_file: LICENSE
-  summary: 'CSV Tables in Markdown: Pandoc Filter for CSV Tables'
   description: |
     Pandoc is a Haskell library for converting from one markup format to another, and a command-line tool that uses this library. Pandoc filters is a UNIX filter that intercept the pandoc AST and modify document. Pantable is a pandoc filter that process tables in the AST.
   doc_url: https://ickc.github.io/pantable/
