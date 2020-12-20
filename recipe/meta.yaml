@@ -11,8 +11,8 @@ source:
   sha256: 600b4687355b14ae5e3d53fe568f0192622ee21e37202ef577f63b1893e112cb
 
 build:
-  noarch: python
   number: 0
+  skip: true   # [py<37]
   entry_points:
     - pantable = pantable.cli.pantable:main
     - pantable2csv = pantable.cli.pantable2csv:main
@@ -22,12 +22,12 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python
   run:
     - backports.cached-property >=1,<2  # [py<38]
     - numpy >=1,<2
     - panflute >=2,<3
-    - python >=3.7
+    - python
     - pyyaml >=5,<6
     - pandoc >=2.11.2,<2.12
   run_constrained:
