@@ -1,13 +1,13 @@
 About pantable
 ==============
 
-Home: https://github.com/ickc/pantable/
+Home: https://github.com/ickc/pantable
 
 Package license: BSD-3-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pantable-feedstock/blob/master/LICENSE.txt)
 
-Summary: CSV Tables in Markdown: Pandoc Filter for CSV Tables
+Summary: A Python library for writing pandoc filters for tables with batteries included.
 
 Development: https://github.com/ickc/pantable/
 
