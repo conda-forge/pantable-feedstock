@@ -1,5 +1,5 @@
 {% set name = "pantable" %}
-{% set version = "0.12.4" %}
+{% set version = "0.13.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9ad940e6088285241a642f812f5cab83aa98491682884876c1205b2103afff01
+  sha256: 600b4687355b14ae5e3d53fe568f0192622ee21e37202ef577f63b1893e112cb
 
 build:
   noarch: python
@@ -15,7 +15,7 @@ build:
   entry_points:
     - pantable = pantable.cli.pantable:main
     - pantable2csv = pantable.cli.pantable2csv:main
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
