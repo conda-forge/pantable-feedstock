@@ -25,7 +25,7 @@ requirements:
     - python >=3.7
     - poetry >=1,<2
   run:
-    - backports.cached-property >=1,<2  # [py<38]
+    - backports.cached-property >=1,<2  # remove this when dropping py37
     - numpy >=1,<2
     - panflute >=2,<3
     - python >=3.7
