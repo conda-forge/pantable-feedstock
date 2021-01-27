@@ -1,5 +1,5 @@
 {% set name = "pantable" %}
-{% set version = "0.13.3" %}
+{% set version = "0.13.4" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 600b4687355b14ae5e3d53fe568f0192622ee21e37202ef577f63b1893e112cb
+  sha256: 264a9895b06fc609ec3e0de034a806466df1088d6200db85ced5386b365ee64c
 
 build:
   noarch: python
@@ -30,8 +30,8 @@ requirements:
     - panflute >=2,<3
     - python >=3.7
     - pyyaml >=5,<6
-    - pandoc >=2.11.2,<2.12
   run_constrained:
+    - pandoc >=2.11.2,<2.12
     - coloredlogs >=14,<16
     - tabulate >=0.8,<0.9
     - yamlloader >=0.5,<0.6
@@ -48,6 +48,7 @@ test:
       echo '# testing' | pandoc -F pantable2csvx
   requires:
     - pip
+    - pandoc >=2.11.2,<2.12
 
 about:
   home: https://github.com/ickc/pantable
