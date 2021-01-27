@@ -48,6 +48,7 @@ test:
       echo '# testing' | pandoc -F pantable2csvx
   requires:
     - pip
+    - pandoc >=2.11.2,<2.12
 
 about:
   home: https://github.com/ickc/pantable
