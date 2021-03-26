@@ -1,5 +1,5 @@
 {% set name = "pantable" %}
-{% set version = "0.13.4" %}
+{% set version = "0.13.5" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 264a9895b06fc609ec3e0de034a806466df1088d6200db85ced5386b365ee64c
+  sha256: 1b157256dc9fb2cb777a264226e42be9a5391c948cf0217af5389979829a29d6
 
 build:
   noarch: python
